@@ -101,7 +101,6 @@ function sat_mtv(polygon_a, polygon_b) {
     const p1 = polygon_project(polygon_a, axis)
     const p2 = polygon_project(polygon_b, axis)
     if ((p1[0] - p2[1] >= 0) || (p2[0] - p1[1] >= 0)) {
-      // there is a gap - bail
       return null;
     }
     const min_distance = p2[1] - p1[0]
@@ -111,21 +110,11 @@ function sat_mtv(polygon_a, polygon_b) {
       distance = min_distance
       smallest = axis;
     }
-    // if (overlap_result > 0) {
-    //   console.log('a', axis, overlap_result)
-    //   if (overlap_result < overlap) {
-    //     overlap = overlap_result
-    //     smallest = axis
-    //   }
-    // } else {
-    //   return null
-    // }
   }
   for (const axis of polygon_axes(polygon_b)) {
     const p1 = polygon_project(polygon_a, axis)
     const p2 = polygon_project(polygon_b, axis)
     if ((p1[0] - p2[1] > 0) || (p2[0] - p1[1] > 0)) {
-      // there is a gap - bail
       return null;
     }
     const min_distance = (p1[1] - p2[0]) * -1
