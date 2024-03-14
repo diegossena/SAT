@@ -125,7 +125,6 @@ function sat_mtv(polygon_a, polygon_b) {
       smallest = axis;
     }
   }
-  console.log(overlap, smallest)
   return { distance, smallest }
 }
 
